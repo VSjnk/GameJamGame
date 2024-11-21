@@ -29,7 +29,6 @@ func _ready():
 	
 	maxPlayerHealth = float(player.health)
 	hudIncrement = maxPlayerHealth / (background.get_child_count() - 3.0)
-	print(hudIncrement)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,7 +44,6 @@ func _process(delta):
 	else:
 		wrn.hide()
 	var hudValue = ceili(player.health / hudIncrement)
-	print(hudValue)
 	if background.find_child("Hud" + str(hudValue)) != null:
 		background.find_child("Hud" + str(hudValue)).show()
 	else:
@@ -69,5 +67,6 @@ func hurtUI():
 	for i in range(range):
 		if i != 0:
 			injured.modulate = Color(1,1,1,1 - (i / range))
-			await get_tree().process_frame
+			if player.health > 0:
+				await get_tree().process_frame
 	injured.modulate = Color(1,1,1,0)

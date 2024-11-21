@@ -12,8 +12,11 @@ const Walk_Speed = 150
 const Sprint_Speed = 250
 const stamina_recharge = 0.5
 
+const Damage = 25
+
 @onready var animated_sprites = $AnimatedSprites
 @onready var hud = $Camera2D/CanvasLayer/BasicHud
+@onready var range = $AnimatedSprites/Range
 
 
 func _physics_process(delta):
@@ -45,39 +48,19 @@ func _input(event):
 		hurt(25)
 	if Input.is_action_just_pressed("ui_page_up"):
 		heal(25)
-	if event is InputEventKey or event is InputEventAction:
-		var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
-		if direction != Vector2(0,0):
-			for i in animated_sprites.get_children():
-				i.hide()
-		var Xaxis = int(direction.x)
-		var Yaxis = int(direction.y)
-		match Yaxis:
-			#up
-			-1:
-				animated_sprites.find_child("Up").show()
-				animated_sprites.find_child("Down").hide()
-				
-			#down
-			1:
-				animated_sprites.find_child("Down").show()
-				animated_sprites.find_child("Up").hide()
-		match Xaxis:
-			#left
-			-1:
-				animated_sprites.find_child("Left").show()
-				animated_sprites.find_child("Right").hide()
-			#right
-			1:
-				animated_sprites.find_child("Right").show()
-				animated_sprites.find_child("Left").hide()
-
+	if event is InputEventMouseMotion:
+		animated_sprites.look_at(get_global_mouse_position())
+	if event is InputEventMouseButton:
+		if Input.is_action_just_pressed("Attack"):
+			var bodies = range.get_overlapping_bodies()
+			for obj in bodies:
+				if obj.is_in_group("parasite"):
+					obj.hurt(Damage)
 func hurt(damage):
 	health -= damage
 	hud.hurtUI()
 	if health <= 0:
-		pass
-		#get_tree().reload_current_scene()
+		get_tree().reload_current_scene()
 
 func heal(ammount):
 	health += ammount
