@@ -40,7 +40,8 @@ func _physics_process(delta):
 		SPEED = 150
 
 func _input(event):
-	hurt(10)
+	if Input.is_action_just_pressed("Sprint"):
+		hurt(25)
 	if event is InputEventKey or event is InputEventAction:
 		var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 		if direction != Vector2(0,0):

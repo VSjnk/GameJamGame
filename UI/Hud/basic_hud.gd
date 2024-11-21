@@ -39,11 +39,16 @@ func _process(delta):
 			flashTime = 0
 	else:
 		wrn.hide()
-	var hudValue = 1
+	var hudValue = floor(player.health / 25)
 	
-	print(player.health % 25)
-	background.find_child("Hud" + str(hudValue))
 	
+	print(hudValue)
+	if background.find_child("Hud" + str(hudValue)) != null:
+		background.find_child("Hud" + str(hudValue)).show()
+	else:
+		background.find_child("Hud0").show()
+	if background.find_child("Hud" + str(hudValue + 1)) != null:
+		background.find_child("Hud" + str(hudValue + 1)).hide()
 	
 	pass
 
