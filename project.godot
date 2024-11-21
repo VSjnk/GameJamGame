@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Game Jam Game"
-run/main_scene="res://Level/tile_map_tests.tscn"
+run/main_scene="res://Menus/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Load="*res://Assets/scripts/GlobalScripts/Load.gd"
+Globals="*res://Assets/scripts/GlobalScripts/Globals.gd"
 
 [display]
 
