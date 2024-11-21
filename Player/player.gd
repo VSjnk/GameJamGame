@@ -28,7 +28,5 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventKey:
-		
-		
-		
+		#Use for actions!
 		pass
