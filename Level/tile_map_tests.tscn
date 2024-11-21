@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://52wvfu685fd8"]
+[gd_scene load_steps=9 format=3 uid="uid://52wvfu685fd8"]
 
 [ext_resource type="Texture2D" uid="uid://ctwwwnwgmy2an" path="res://Assets/TileMap/TestMap.png" id="1_gfrul"]
 [ext_resource type="PackedScene" uid="uid://bvicp538oa5eg" path="res://Scenes/Player/player.tscn" id="2_tq4gn"]
 [ext_resource type="PackedScene" uid="uid://dah31kvtdsa5l" path="res://Scenes/Parasite/parasite.tscn" id="3_yfflc"]
+[ext_resource type="PackedScene" uid="uid://bxpa3h1amfouj" path="res://Scenes/Medicine/medicine.tscn" id="4_s60vu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h2p21"]
 vertices = PackedVector2Array(3168, -256, 3168, 1088, 2400, 1088, 2400, 576, 1856, 864, 1984, 864, 1984, 1088, 1664, 1088, 1664, 864, 1792, 864, 1856, 576, 1792, 576, 800, 1088, 960, 1088, 960, 1344, 448, 1344, 448, 1088, 736, 1088, 800, 576, 736, 864, 128, 256, 32, 256, 32, 32, 288, 32, 288, 256, 192, 256, 128, 864, 192, 800, 736, 800, 736, 0, 800, 512, 1056, 0, 1056, -128, 1536, -128, 1536, 288, 1056, 288, 1056, 64, 800, 64, 2400, 512, 2400, -256)
@@ -67,3 +68,15 @@ position = Vector2(1051, 531)
 
 [node name="parasite6" parent="." instance=ExtResource("3_yfflc")]
 position = Vector2(1857, 930)
+
+[node name="Medicine" parent="." instance=ExtResource("4_s60vu")]
+position = Vector2(1366, 128)
+
+[node name="Medicine2" parent="." instance=ExtResource("4_s60vu")]
+position = Vector2(1327, 14)
+
+[node name="Medicine3" parent="." instance=ExtResource("4_s60vu")]
+position = Vector2(766, 842)
+
+[node name="Medicine4" parent="." instance=ExtResource("4_s60vu")]
+position = Vector2(749, 1169)

@@ -4,6 +4,8 @@ extends Control
 
 @onready var stamina : TextureProgressBar = $Stamina
 @onready var health : TextureProgressBar = $Health
+@onready var parasite_time : TextureProgressBar = $ParasiteTime
+
 @onready var background = $Background
 
 @onready var wrn = $Background/Wrn
@@ -33,6 +35,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_delta = delta
+	parasite_time.visible = Input.is_action_pressed("CheckParasite")
+	parasite_time.value = player.parasiteLeft / 10
 	stamina.value = player.stamina
 	health.value = player.health
 	if player.health <= 20:

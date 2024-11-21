@@ -5,6 +5,7 @@ class_name Player
 var SPEED = 150
 var health = 100
 var stamina = 100
+var parasiteLeft = 1000
 
 var timer : SceneTreeTimer
 
@@ -24,6 +25,10 @@ func _physics_process(delta):
 	var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 	if direction:
 		#Handels your sprinting
+		parasiteLeft -= randf_range(0.0,1.0)
+		if parasiteLeft <= 0:
+			hurt(randi_range(1,25))
+			parasiteLeft = 1000
 		if Input.is_action_pressed("Sprint") and stamina >= stamina_recharge:
 			SPEED = 250
 			#Looses Stamina over time
@@ -44,6 +49,7 @@ func _physics_process(delta):
 	
 
 func _input(event):
+	
 	if Input.is_action_just_pressed("ui_page_down"):
 		hurt(25)
 	if Input.is_action_just_pressed("ui_page_up"):
