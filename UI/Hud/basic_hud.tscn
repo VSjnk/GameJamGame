@@ -19,12 +19,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0dj7f")
 
-[node name="Injurd" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(640, 360)
-scale = Vector2(12.8, 7.2)
-texture = ExtResource("7_4antw")
-
 [node name="Health" type="TextureProgressBar" parent="."]
 layout_mode = 1
 offset_left = 28.0
@@ -89,3 +83,9 @@ texture = ExtResource("7_sru3w")
 position = Vector2(0, -302)
 scale = Vector2(4.63393, 4.63393)
 texture = ExtResource("5_gc6hd")
+
+[node name="Injurd" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 3.05176e-05)
+scale = Vector2(12.8, 7.2)
+texture = ExtResource("7_4antw")

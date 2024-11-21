@@ -40,8 +40,10 @@ func _physics_process(delta):
 		SPEED = 150
 
 func _input(event):
-	if Input.is_action_just_pressed("Sprint"):
+	if Input.is_action_just_pressed("ui_page_down"):
 		hurt(25)
+	if Input.is_action_just_pressed("ui_page_up"):
+		heal(25)
 	if event is InputEventKey or event is InputEventAction:
 		var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 		if direction != Vector2(0,0):
@@ -72,7 +74,11 @@ func _input(event):
 func hurt(damage):
 	health -= damage
 	hud.hurtUI()
-	print(health)
 	if health <= 0:
 		pass
 		#get_tree().reload_current_scene()
+
+func heal(ammount):
+	health += ammount
+	if health > 100:
+		health = 100

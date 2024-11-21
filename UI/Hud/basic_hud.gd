@@ -7,7 +7,10 @@ extends Control
 @onready var background = $Background
 
 @onready var wrn = $Background/Wrn
-@onready var injured = $Injurd
+@onready var injured = $Background/Injurd
+
+var maxPlayerHealth = 100.0
+var hudIncrement = 25.0
 
 #because I'm stupid, I don't know how to make delta time global so this will have to do.
 var flashTime = 0
@@ -23,8 +26,10 @@ func _ready():
 	await player.find_child("Player")
 	player = player.find_child("Player")
 	print("Player set as! " + str(player))
-	pass # Replace with function body.
-
+	
+	maxPlayerHealth = float(player.health)
+	hudIncrement = maxPlayerHealth / (background.get_child_count() - 3.0)
+	print(hudIncrement)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -39,16 +44,19 @@ func _process(delta):
 			flashTime = 0
 	else:
 		wrn.hide()
-	var hudValue = floor(player.health / 25)
-	
-	
+	var hudValue = ceili(player.health / hudIncrement)
 	print(hudValue)
 	if background.find_child("Hud" + str(hudValue)) != null:
 		background.find_child("Hud" + str(hudValue)).show()
 	else:
-		background.find_child("Hud0").show()
+		if hudValue <= 0:
+			background.find_child("Hud0").show()
+		else:
+			background.find_child("Hud4").show()
 	if background.find_child("Hud" + str(hudValue + 1)) != null:
 		background.find_child("Hud" + str(hudValue + 1)).hide()
+	if background.find_child("Hud" + str(hudValue - 1)) != null:
+		background.find_child("Hud" + str(hudValue - 1)).hide()
 	
 	pass
 
