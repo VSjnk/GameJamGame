@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://covas3f0i7xtb"]
+[gd_scene load_steps=9 format=3 uid="uid://covas3f0i7xtb"]
 
 [ext_resource type="Script" path="res://UI/Hud/basic_hud.gd" id="1_0dj7f"]
 [ext_resource type="Texture2D" uid="uid://cxi7xrntf4s42" path="res://UI/Assets/bgBar.png" id="2_fy8f6"]
 [ext_resource type="Texture2D" uid="uid://bnhyit1h7k803" path="res://UI/Assets/health.png" id="3_vj1fa"]
-[ext_resource type="Texture2D" uid="uid://b228w2wqrv84t" path="res://UI/Assets/HUD.png" id="4_fsdlx"]
 [ext_resource type="Texture2D" uid="uid://jsdcc0d83d50" path="res://UI/Assets/stmna.png" id="4_miaee"]
 [ext_resource type="Texture2D" uid="uid://urfag14r5b8l" path="res://UI/Assets/wrn.png" id="5_gc6hd"]
+[ext_resource type="Texture2D" uid="uid://c1tghvh3esmqd" path="res://UI/Assets/HUD2.png" id="6_5dqhf"]
 [ext_resource type="Texture2D" uid="uid://dqd54mo2uhp73" path="res://UI/Assets/injurd.png" id="7_4antw"]
+[ext_resource type="Texture2D" uid="uid://c3cmsnrsbn1ho" path="res://UI/Assets/HUD3.png" id="7_sru3w"]
 
 [node name="BasicHud" type="Control"]
 layout_mode = 3
@@ -59,11 +60,16 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Hud1" type="Sprite2D" parent="Background"]
+scale = Vector2(0.8, 0.72)
+texture = ExtResource("6_5dqhf")
+
+[node name="Hud2" type="Sprite2D" parent="Background"]
+visible = false
+scale = Vector2(0.8, 0.72)
+texture = ExtResource("7_sru3w")
+
 [node name="Wrn" type="Sprite2D" parent="Background"]
 position = Vector2(0, -302)
 scale = Vector2(4.63393, 4.63393)
 texture = ExtResource("5_gc6hd")
-
-[node name="Hud0" type="Sprite2D" parent="Background"]
-scale = Vector2(0.8, 0.72)
-texture = ExtResource("4_fsdlx")

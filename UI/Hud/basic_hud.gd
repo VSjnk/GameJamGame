@@ -4,6 +4,8 @@ extends Control
 
 @onready var stamina : TextureProgressBar = $Stamina
 @onready var health : TextureProgressBar = $Health
+@onready var background = $Background
+
 @onready var wrn = $Background/Wrn
 @onready var injured = $Injurd
 
@@ -37,6 +39,12 @@ func _process(delta):
 			flashTime = 0
 	else:
 		wrn.hide()
+	var hudValue = 1
+	
+	print(player.health % 25)
+	background.find_child("Hud" + str(hudValue))
+	
+	
 	pass
 
 #This function controls the hurt flash speed with delta
