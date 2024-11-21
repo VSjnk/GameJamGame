@@ -1,7 +1,14 @@
 extends CharacterBody2D
 
+class_name Player
+
 var SPEED = 150
+var health = 100
 var stamina = 100
+
+const Walk_Speed = 150
+const Sprint_Speed = 250
+const stamina_recharge = 0.5
 
 @onready var animated_sprites = $AnimatedSprites
 
@@ -18,10 +25,10 @@ func _physics_process(delta):
 	#Recharges your stamina
 	if !Input.is_action_pressed("Sprint"):
 		if stamina < 100:
-			stamina += 0.5
+			stamina += stamina_recharge
 			
 	#Handels your sprinting
-	if Input.is_action_pressed("Sprint") and stamina > 0:
+	if Input.is_action_pressed("Sprint") and stamina >= stamina_recharge:
 		SPEED = 250
 		#Looses Stamina over time
 		stamina -= 1
@@ -29,7 +36,7 @@ func _physics_process(delta):
 		SPEED = 150
 
 func _input(event):
-	if event is InputEventKey:
+	if event is InputEventKey or event is InputEventAction:
 		var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 		if direction != Vector2(0,0):
 			for i in animated_sprites.get_children():
@@ -51,11 +58,12 @@ func _input(event):
 			-1:
 				animated_sprites.find_child("Left").show()
 				animated_sprites.find_child("Right").hide()
-				pass
 			#right
 			1:
 				animated_sprites.find_child("Right").show()
 				animated_sprites.find_child("Left").hide()
-				
-		#Use for actions!
-		pass
+
+func hurt(damage):
+	health -= damage
+	if health <= 0:
+		get_tree().reload_current_scene()
