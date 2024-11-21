@@ -6,11 +6,15 @@ var SPEED = 150
 var health = 100
 var stamina = 100
 
+var timer : SceneTreeTimer
+
 const Walk_Speed = 150
 const Sprint_Speed = 250
 const stamina_recharge = 0.5
 
 @onready var animated_sprites = $AnimatedSprites
+@onready var hud = $Camera2D/CanvasLayer/BasicHud
+
 
 func _physics_process(delta):
 	#Handels basic movement
@@ -36,6 +40,8 @@ func _physics_process(delta):
 		SPEED = 150
 
 func _input(event):
+	if event is InputEventMouseButton:
+		hurt(10)
 	if event is InputEventKey or event is InputEventAction:
 		var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 		if direction != Vector2(0,0):
@@ -65,5 +71,7 @@ func _input(event):
 
 func hurt(damage):
 	health -= damage
+	hud.hurtUI()
 	if health <= 0:
-		get_tree().reload_current_scene()
+		pass
+		#get_tree().reload_current_scene()
