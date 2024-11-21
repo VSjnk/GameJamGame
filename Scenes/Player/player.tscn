@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvicp538oa5eg"]
 
 [ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_a10tn"]
-[ext_resource type="Script" path="res://Player/player.gd" id="1_afowi"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_afowi"]
 [ext_resource type="PackedScene" uid="uid://covas3f0i7xtb" path="res://UI/Hud/basic_hud.tscn" id="2_nprje"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3nm7a"]

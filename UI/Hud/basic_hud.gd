@@ -7,7 +7,7 @@ extends Control
 @onready var wrn = $Background/Wrn
 @onready var injured = $Injurd
 
-
+#because I'm stupid, I don't know how to make delta time global so this will have to do.
 var flashTime = 0
 var _delta = 0
 # Called when the node enters the scene tree for the first time.
@@ -29,10 +29,8 @@ func _process(delta):
 	_delta = delta
 	stamina.value = player.stamina
 	health.value = player.health
-	
 	if player.health <= 20:
 		flashTime += delta
-		print(flashTime)
 		if flashTime >= player.health / 100.0:
 			wrn.visible = !wrn.visible
 			await get_tree().process_frame
@@ -41,13 +39,14 @@ func _process(delta):
 		wrn.hide()
 	pass
 
-
+#This function controls the hurt flash speed with delta
 func hurtUI():
 	injured.modulate = Color(1,1,1,1)
-	const range = 125.0
+	var range = 255.0
+	range = range * (_delta * 10)
+	print(range)
 	for i in range(range):
 		if i != 0:
-			#print(1 - (i / range))
 			injured.modulate = Color(1,1,1,1 - (i / range))
 			await get_tree().process_frame
 	injured.modulate = Color(1,1,1,0)
