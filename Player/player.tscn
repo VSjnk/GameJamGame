@@ -9,11 +9,32 @@ radius = 31.0161
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_afowi")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="AnimatedSprites" type="Node2D" parent="."]
+
+[node name="Up" type="Sprite2D" parent="AnimatedSprites"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_a10tn")
+
+[node name="Down" type="Sprite2D" parent="AnimatedSprites"]
+visible = false
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_a10tn")
+
+[node name="Left" type="Sprite2D" parent="AnimatedSprites"]
+visible = false
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_a10tn")
+
+[node name="Right" type="Sprite2D" parent="AnimatedSprites"]
+visible = false
+rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_a10tn")
 
