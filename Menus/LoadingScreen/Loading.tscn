@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtxctmgd074fw"]
+
+[ext_resource type="Script" path="res://Menus/LoadingScreen/LoadingScreen.gd" id="1_cqpx1"]
+[ext_resource type="Theme" uid="uid://bg0lga23joqw1" path="res://UI/Assets/MainTheme.tres" id="2_t28fy"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_cqpx1")
+
+[node name="Progress" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.5
+offset_top = -44.0
+offset_right = 444.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_t28fy")
+text = "Loading: Error starting script"
+horizontal_alignment = 1

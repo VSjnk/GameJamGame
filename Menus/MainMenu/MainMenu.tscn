@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2ydw5mf8yh3r"]
+
+[ext_resource type="Script" path="res://Menus/MainMenu/MainMenu.gd" id="1_8mwsx"]
+[ext_resource type="Theme" uid="uid://bg0lga23joqw1" path="res://UI/Assets/MainTheme.tres" id="1_cjxfo"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_8mwsx")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 68.0
+offset_right = 156.0
+offset_bottom = 156.0
+grow_horizontal = 2
+theme = ExtResource("1_cjxfo")
+text = "The Game"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.5
+offset_top = -344.0
+offset_right = 60.5
+offset_bottom = -269.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_cjxfo")
+text = "Start"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
