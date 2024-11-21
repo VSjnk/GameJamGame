@@ -12,14 +12,32 @@ const Walk_Speed = 150
 const Sprint_Speed = 250
 const stamina_recharge = 0.5
 
+<<<<<<< HEAD
 @onready var animated_sprites = $AnimatedSprites
 @onready var hud = $Camera2D/CanvasLayer/BasicHud
+=======
+const Damage = 25
+
+@onready var animated_sprites = $AnimatedSprites
+@onready var hud = $Camera2D/CanvasLayer/BasicHud
+@onready var range = $AnimatedSprites/Range
+>>>>>>> Programming
 
 
 func _physics_process(delta):
 	#Handels basic movement
 	var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 	if direction:
+<<<<<<< HEAD
+=======
+		#Handels your sprinting
+		if Input.is_action_pressed("Sprint") and stamina >= stamina_recharge:
+			SPEED = 250
+			#Looses Stamina over time
+			stamina -= 1
+		else:
+			SPEED = 150
+>>>>>>> Programming
 		velocity = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -31,6 +49,7 @@ func _physics_process(delta):
 		if stamina < 100:
 			stamina += stamina_recharge
 			
+<<<<<<< HEAD
 	#Handels your sprinting
 	if Input.is_action_pressed("Sprint") and stamina >= stamina_recharge:
 		SPEED = 250
@@ -38,12 +57,16 @@ func _physics_process(delta):
 		stamina -= 1
 	else:
 		SPEED = 150
+=======
+	
+>>>>>>> Programming
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_page_down"):
 		hurt(25)
 	if Input.is_action_just_pressed("ui_page_up"):
 		heal(25)
+<<<<<<< HEAD
 	if event is InputEventKey or event is InputEventAction:
 		var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 		if direction != Vector2(0,0):
@@ -71,12 +94,26 @@ func _input(event):
 				animated_sprites.find_child("Right").show()
 				animated_sprites.find_child("Left").hide()
 
+=======
+	if event is InputEventMouseMotion:
+		animated_sprites.look_at(get_global_mouse_position())
+	if event is InputEventMouseButton:
+		if Input.is_action_just_pressed("Attack"):
+			var bodies = range.get_overlapping_bodies()
+			for obj in bodies:
+				if obj.is_in_group("parasite"):
+					obj.hurt(Damage)
+>>>>>>> Programming
 func hurt(damage):
 	health -= damage
 	hud.hurtUI()
 	if health <= 0:
+<<<<<<< HEAD
 		pass
 		#get_tree().reload_current_scene()
+=======
+		get_tree().reload_current_scene()
+>>>>>>> Programming
 
 func heal(ammount):
 	health += ammount

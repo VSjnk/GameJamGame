@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dah31kvtdsa5l"]
+
+[ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_cowcl"]
+[ext_resource type="Script" path="res://Scenes/Parasite/parasite.gd" id="2_ovidr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbxjb"]
+radius = 17.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knrvq"]
+size = Vector2(33, 54)
+
+[node name="parasite" type="CharacterBody2D" groups=["parasite"]]
+script = ExtResource("2_ovidr")
+
+[node name="parasite" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.266083, 0.266083)
+texture = ExtResource("1_cowcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["parasite"]]
+shape = SubResource("CircleShape2D_lbxjb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 155.43
+debug_enabled = true
+
+[node name="RandomRecalculatePath" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="ConstantAttackTime" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="Radius" type="Area2D" parent="." groups=["parasite"]]
+position = Vector2(33, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radius" groups=["parasite"]]
+position = Vector2(-6.5, 0)
+shape = SubResource("RectangleShape2D_knrvq")
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="RandomRecalculatePath" to="." method="_on_random_recalculate_path_timeout"]
+[connection signal="timeout" from="ConstantAttackTime" to="." method="_on_constant_attack_time_timeout"]
