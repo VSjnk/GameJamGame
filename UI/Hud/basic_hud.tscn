@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://covas3f0i7xtb"]
+[gd_scene load_steps=12 format=3 uid="uid://covas3f0i7xtb"]
 
 [ext_resource type="Script" path="res://UI/Hud/basic_hud.gd" id="1_0dj7f"]
 [ext_resource type="Texture2D" uid="uid://cxi7xrntf4s42" path="res://UI/Assets/bgBar.png" id="2_fy8f6"]
@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://jsdcc0d83d50" path="res://UI/Assets/stmna.png" id="4_miaee"]
 [ext_resource type="Texture2D" uid="uid://urfag14r5b8l" path="res://UI/Assets/wrn.png" id="5_gc6hd"]
 [ext_resource type="Texture2D" uid="uid://c1tghvh3esmqd" path="res://UI/Assets/HUD2.png" id="6_5dqhf"]
-[ext_resource type="Texture2D" uid="uid://dj54podotk6s" path="res://UI/Assets/HUD cleen.png" id="6_ohsxb"]
+[ext_resource type="Texture2D" uid="uid://ca618311jaomu" path="res://UI/Assets/HUD cleen.png" id="6_ohsxb"]
 [ext_resource type="Texture2D" uid="uid://dqd54mo2uhp73" path="res://UI/Assets/injurd.png" id="7_4antw"]
 [ext_resource type="Texture2D" uid="uid://bsq0ky814qyva" path="res://UI/Assets/HUD3.png" id="7_sru3w"]
+[ext_resource type="Texture2D" uid="uid://br3togwk0c3ux" path="res://UI/Assets/HUD4.png" id="8_80q0d"]
+[ext_resource type="Texture2D" uid="uid://bm5hcb47dl8iq" path="res://UI/Assets/HUD5.png" id="9_l3k8c"]
 
 [node name="BasicHud" type="Control"]
 layout_mode = 3
@@ -72,12 +74,12 @@ texture = ExtResource("7_sru3w")
 [node name="Hud1" type="Sprite2D" parent="Background"]
 visible = false
 scale = Vector2(0.8, 0.72)
-texture = ExtResource("7_sru3w")
+texture = ExtResource("8_80q0d")
 
 [node name="Hud0" type="Sprite2D" parent="Background"]
 visible = false
 scale = Vector2(0.8, 0.72)
-texture = ExtResource("7_sru3w")
+texture = ExtResource("9_l3k8c")
 
 [node name="Wrn" type="Sprite2D" parent="Background"]
 position = Vector2(0, -302)

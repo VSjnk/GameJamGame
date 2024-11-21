@@ -20,6 +20,13 @@ func _physics_process(delta):
 	#Handels basic movement
 	var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 	if direction:
+		#Handels your sprinting
+		if Input.is_action_pressed("Sprint") and stamina >= stamina_recharge:
+			SPEED = 250
+			#Looses Stamina over time
+			stamina -= 1
+		else:
+			SPEED = 150
 		velocity = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -31,13 +38,7 @@ func _physics_process(delta):
 		if stamina < 100:
 			stamina += stamina_recharge
 			
-	#Handels your sprinting
-	if Input.is_action_pressed("Sprint") and stamina >= stamina_recharge:
-		SPEED = 250
-		#Looses Stamina over time
-		stamina -= 1
-	else:
-		SPEED = 150
+	
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_page_down"):

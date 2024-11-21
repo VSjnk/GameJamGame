@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dah31kvtdsa5l"]
+
+[ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_cowcl"]
+[ext_resource type="Script" path="res://Scenes/Parasite/parasite.gd" id="2_ovidr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbxjb"]
+radius = 17.0
+
+[node name="parasite" type="CharacterBody2D"]
+script = ExtResource("2_ovidr")
+
+[node name="parasite" type="Sprite2D" parent="."]
+scale = Vector2(0.266083, 0.266083)
+texture = ExtResource("1_cowcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lbxjb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="RandomRecalculatePath" type="Timer" parent="."]
+autostart = true
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="timeout" from="RandomRecalculatePath" to="." method="_on_random_recalculate_path_timeout"]
