@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var radius = $Radius
 @onready var constant_attack_time = $ConstantAttackTime
 
+var errorOverride = 0
+
 var direction : Vector2
 
 var health = 50
@@ -18,18 +20,20 @@ const damage = 10
 
 
 var active = false
-# Called when the node enters the scene tree for the first time.
+#Finds the Player node as soon as it loads into the scene.
 func _ready():
 	while player.find_child("Player") == null:
 		player = player.get_parent()
 		if player.find_child("Player"):
 			print("Found Player! " + str(player))
 		else:
-			print("Script Failed!")
+			errorOverride += 1
+			print("Script Failed! Retrying for the " + str(errorOverride) + " time...")
+			if errorOverride > 500:
+				print("Cannot find player! Removing...")
+				queue_free()
 	await player.find_child("Player")
 	player = player.find_child("Player")
-	print("Player set as! " + str(player))
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

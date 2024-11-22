@@ -4,17 +4,17 @@
 [ext_resource type="Script" path="res://Scenes/Parasite/parasite.gd" id="2_ovidr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbxjb"]
-radius = 17.0
+radius = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knrvq"]
-size = Vector2(33, 54)
+size = Vector2(66, 108)
 
 [node name="parasite" type="CharacterBody2D" groups=["parasite"]]
 script = ExtResource("2_ovidr")
 
 [node name="parasite" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.266083, 0.266083)
+scale = Vector2(0.532, 0.532)
 texture = ExtResource("1_cowcl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["parasite"]]
@@ -38,7 +38,7 @@ wait_time = 0.75
 position = Vector2(33, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Radius" groups=["parasite"]]
-position = Vector2(-6.5, 0)
+position = Vector2(19, 0)
 shape = SubResource("RectangleShape2D_knrvq")
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

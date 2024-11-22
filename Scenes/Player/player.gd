@@ -2,16 +2,16 @@ extends CharacterBody2D
 
 class_name Player
 
-var SPEED = 150
+var SPEED = 300
 var health = 100
 var stamina = 100
 var parasiteLeft = 1000
 
 var timer : SceneTreeTimer
 
-const Walk_Speed = 150
-const Sprint_Speed = 250
-const stamina_recharge = 0.5
+const Walk_Speed = 300
+const Sprint_Speed = 450
+const stamina_recharge = 0.25
 
 const Damage = 25
 
@@ -30,11 +30,11 @@ func _physics_process(delta):
 			hurt(randi_range(1,25))
 			parasiteLeft = 1000
 		if Input.is_action_pressed("Sprint") and stamina >= stamina_recharge:
-			SPEED = 250
+			SPEED = Sprint_Speed
 			#Looses Stamina over time
-			stamina -= 1
+			stamina -= 0.1
 		else:
-			SPEED = 150
+			SPEED = Walk_Speed
 		velocity = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)

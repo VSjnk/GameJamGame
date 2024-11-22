@@ -7,6 +7,10 @@ extends Control
 @onready var parasite_time : TextureProgressBar = $ParasiteTime
 
 @onready var background = $Background
+@onready var text_box = $TextBox
+@onready var dialoug : Label = $TextBox/MarginContainer/Dialoug
+
+
 
 @onready var wrn = $Background/Wrn
 @onready var injured = $Background/Injurd
@@ -14,11 +18,16 @@ extends Control
 var maxPlayerHealth = 100.0
 var hudIncrement = 25.0
 
+var textTween : Tween
+const CHAR_READ_RATE = 0.05
+
 #because I'm stupid, I don't know how to make delta time global so this will have to do.
 var flashTime = 0
 var _delta = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	showDialoug("This is a test")
+	#text_box.hide()
 	while player.find_child("Player") == null:
 		player = player.get_parent()
 		if player.find_child("Player"):
@@ -27,7 +36,7 @@ func _ready():
 			print("Script Failed!")
 	await player.find_child("Player")
 	player = player.find_child("Player")
-	print("Player set as! " + str(player))
+	#print("Player set as! " + str(player))
 	
 	maxPlayerHealth = float(player.health)
 	hudIncrement = maxPlayerHealth / (background.get_child_count() - 3.0)
@@ -74,3 +83,18 @@ func hurtUI():
 			if player.health > 0:
 				await get_tree().process_frame
 	injured.modulate = Color(1,1,1,0)
+
+#This function handels the dialoug text
+
+func showDialoug(TextBox):
+	dialoug.text = TextBox
+	if textTween:
+		textTween.kill()
+	textTween = get_tree().create_tween()
+	textTween.finished.connect(textTween_Finished)
+	textTween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
+	textTween.tween_property(dialoug, "visible_ratio", 1.0, len(TextBox) * CHAR_READ_RATE)
+
+func textTween_Finished():
+	print("Got function!")
+	$TextBox/V.show()

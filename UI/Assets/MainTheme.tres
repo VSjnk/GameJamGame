@@ -1,4 +1,11 @@
-[gd_resource type="Theme" format=3 uid="uid://bg0lga23joqw1"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bg0lga23joqw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2luf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
 
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
@@ -9,3 +16,4 @@ Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 16
 Label/font_sizes/font_size = 64
+Panel/styles/panel = SubResource("StyleBoxFlat_a2luf")
