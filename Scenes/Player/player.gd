@@ -60,8 +60,17 @@ func _input(event):
 		if Input.is_action_just_pressed("Attack"):
 			var bodies = range.get_overlapping_bodies()
 			for obj in bodies:
+				print(obj.name)
 				if obj.is_in_group("parasite"):
 					obj.hurt(Damage)
+				if obj.is_in_group("Door"):
+					obj.interact()
+					print("Found Door!")
+					#else:
+						#print("Door has no password")
+						#hud.password_prompt.hide()
+						#Door.interact()
+				
 func hurt(damage):
 	health -= damage
 	hud.hurtUI()

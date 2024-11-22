@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @onready var nav = $NavigationAgent2D
 @onready var random_recalculate_path = $RandomRecalculatePath
-@onready var radius = $Radius
+@onready var bodies = $Radius.get_overlapping_bodies()
 @onready var constant_attack_time = $ConstantAttackTime
 
 var errorOverride = 0
@@ -24,14 +24,16 @@ var active = false
 func _ready():
 	while player.find_child("Player") == null:
 		player = player.get_parent()
-		if player.find_child("Player"):
-			print("Found Player! " + str(player))
-		else:
+		if !player.find_child("Player"):
 			errorOverride += 1
-			print("Script Failed! Retrying for the " + str(errorOverride) + " time...")
+			if OS.is_debug_build():
+				print("Script Failed! Retrying for the " + str(errorOverride) + " time...")
 			if errorOverride > 500:
 				print("Cannot find player! Removing...")
 				queue_free()
+		elif OS.is_debug_build():
+			print("Found Player! " + str(player))
+				
 	await player.find_child("Player")
 	player = player.find_child("Player")
 
@@ -62,10 +64,10 @@ func _on_random_recalculate_path_timeout():
 	direction = direction.normalized()
 
 func _on_constant_attack_time_timeout():
-	var bodies = radius.get_overlapping_bodies()
 	for obj in bodies:
 		if obj.is_in_group("Player"):
 			obj.hurt(damage)
+			
 
 func hurt(damage):
 	health -= damage
