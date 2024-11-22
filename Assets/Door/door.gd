@@ -45,20 +45,27 @@ func interact():
 		print(current_Door_State)
 	if password != "":
 		player.hud.password_prompt.show()
-		if player.hud.password_prompt.visible:
+		while player.hud.password_prompt.visible:
 			print("asking player for password...")
 			await get_tree().process_frame
-			if player.hud.enter_password.pressed and is_in_group("Door"):
+			if player.hud.enter_password.pressed:
 				if player.hud.password == password:
 					match current_Door_State:
 						doorState.OPEN:
 							closed()
 						doorState.CLOSED:
 							open()
-					player.hud.password_prompt.visible = false
+					print("Closed via Enter")
+					player.hud.password_prompt.hide()
 			if player.hud.back_button.pressed:
-				player.hud.password_prompt.visible = false
-	
+				print("Closed via back")
+				player.hud.password_prompt.hide()
+	else:
+		match current_Door_State:
+			doorState.OPEN:
+				closed()
+			doorState.CLOSED:
+				open()
 
 func open():
 	current_Door_State = doorState.OPEN
