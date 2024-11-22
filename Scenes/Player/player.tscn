@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvicp538oa5eg"]
+
+[ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_a10tn"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_afowi"]
+[ext_resource type="PackedScene" uid="uid://covas3f0i7xtb" path="res://UI/Hud/basic_hud.tscn" id="2_nprje"]
+[ext_resource type="Texture2D" uid="uid://md4vxt0vq63w" path="res://LIGHT2.png" id="4_demge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22ms6"]
+size = Vector2(190.218, 176.792)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nm7a"]
+radius = 64.0703
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_afowi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+zoom = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+process_mode = 3
+
+[node name="BasicHud" parent="Camera2D/CanvasLayer" instance=ExtResource("2_nprje")]
+visible = false
+
+[node name="AnimatedSprites" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="AnimatedSprites"]
+rotation = 1.57079
+texture = ExtResource("1_a10tn")
+
+[node name="Range" type="Area2D" parent="AnimatedSprites"]
+position = Vector2(35, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprites/Range"]
+position = Vector2(88, 0)
+shape = SubResource("RectangleShape2D_22ms6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+shape = SubResource("CircleShape2D_3nm7a")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(24.0085, 24.0085)
+shadow_enabled = true
+texture = ExtResource("4_demge")

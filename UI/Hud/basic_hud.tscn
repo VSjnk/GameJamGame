@@ -1,0 +1,245 @@
+[gd_scene load_steps=13 format=3 uid="uid://covas3f0i7xtb"]
+
+[ext_resource type="Script" path="res://UI/Hud/basic_hud.gd" id="1_0dj7f"]
+[ext_resource type="Texture2D" uid="uid://cxi7xrntf4s42" path="res://UI/Assets/bgBar.png" id="2_fy8f6"]
+[ext_resource type="Texture2D" uid="uid://bnhyit1h7k803" path="res://UI/Assets/health.png" id="3_vj1fa"]
+[ext_resource type="Texture2D" uid="uid://jsdcc0d83d50" path="res://UI/Assets/stmna.png" id="4_miaee"]
+[ext_resource type="Texture2D" uid="uid://urfag14r5b8l" path="res://UI/Assets/wrn.png" id="5_gc6hd"]
+[ext_resource type="Texture2D" uid="uid://c1tghvh3esmqd" path="res://UI/Assets/HUD2.png" id="6_5dqhf"]
+[ext_resource type="Texture2D" uid="uid://ca618311jaomu" path="res://UI/Assets/HUD cleen.png" id="6_ohsxb"]
+[ext_resource type="Texture2D" uid="uid://dqd54mo2uhp73" path="res://UI/Assets/injurd.png" id="7_4antw"]
+[ext_resource type="Texture2D" uid="uid://bsq0ky814qyva" path="res://UI/Assets/HUD3.png" id="7_sru3w"]
+[ext_resource type="Texture2D" uid="uid://br3togwk0c3ux" path="res://UI/Assets/HUD4.png" id="8_80q0d"]
+[ext_resource type="Texture2D" uid="uid://bm5hcb47dl8iq" path="res://UI/Assets/HUD5.png" id="9_l3k8c"]
+[ext_resource type="Theme" uid="uid://bg0lga23joqw1" path="res://UI/Assets/MainTheme.tres" id="12_rwetb"]
+
+[node name="BasicHud" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0dj7f")
+
+[node name="Health" type="TextureProgressBar" parent="."]
+process_mode = 3
+layout_mode = 1
+offset_left = 28.0
+offset_top = 12.0
+offset_right = 188.0
+offset_bottom = 52.0
+scale = Vector2(2.70879, 2.70879)
+value = 100.0
+texture_under = ExtResource("2_fy8f6")
+texture_progress = ExtResource("3_vj1fa")
+
+[node name="ParasiteTime" type="TextureProgressBar" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 152.0
+offset_right = 80.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.70879, 2.70879)
+pivot_offset = Vector2(80, 12)
+value = 100.0
+texture_progress = ExtResource("3_vj1fa")
+tint_progress = Color(0, 1, 1, 1)
+
+[node name="Stamina" type="TextureProgressBar" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -459.0
+offset_top = 12.0
+offset_right = -299.0
+offset_bottom = 52.0
+grow_horizontal = 0
+scale = Vector2(2.70879, 2.70879)
+value = 100.0
+texture_under = ExtResource("2_fy8f6")
+texture_progress = ExtResource("4_miaee")
+
+[node name="Background" type="Control" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hud4" type="Sprite2D" parent="Background"]
+scale = Vector2(0.8, 0.72)
+texture = ExtResource("6_ohsxb")
+
+[node name="Hud3" type="Sprite2D" parent="Background"]
+visible = false
+scale = Vector2(0.8, 0.72)
+texture = ExtResource("6_5dqhf")
+
+[node name="Hud2" type="Sprite2D" parent="Background"]
+visible = false
+scale = Vector2(0.8, 0.72)
+texture = ExtResource("7_sru3w")
+
+[node name="Hud1" type="Sprite2D" parent="Background"]
+visible = false
+scale = Vector2(0.8, 0.72)
+texture = ExtResource("8_80q0d")
+
+[node name="Hud0" type="Sprite2D" parent="Background"]
+visible = false
+scale = Vector2(0.8, 0.72)
+texture = ExtResource("9_l3k8c")
+
+[node name="Wrn" type="Sprite2D" parent="Background"]
+position = Vector2(0, -302)
+scale = Vector2(4.63393, 4.63393)
+texture = ExtResource("5_gc6hd")
+
+[node name="Injurd" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(12.8, 7.2)
+texture = ExtResource("7_4antw")
+
+[node name="TextBox" type="Panel" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 2
+offset_left = 20.0
+offset_top = 455.0
+offset_right = 1260.0
+offset_bottom = 700.0
+grow_vertical = 0
+theme = ExtResource("12_rwetb")
+
+[node name="*" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+offset_left = 33.0
+offset_top = 25.0
+offset_right = 68.0
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "*"
+
+[node name="V" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -16.0
+offset_right = -58.0
+offset_bottom = 89.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 4.71238
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "<"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBox"]
+layout_mode = 1
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 1226.0
+offset_bottom = 233.0
+theme_override_constants/margin_left = 62
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 62
+theme_override_constants/margin_bottom = 3
+
+[node name="Dialogue" type="Label" parent="TextBox/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(1101.74, 210)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Placeholder Dialogue Text"
+autowrap_mode = 1
+clip_text = true
+visible_ratio = -0.0526316
+
+[node name="PasswordPrompt" type="Panel" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_left = 385.0
+offset_top = 244.0
+offset_right = 901.0
+offset_bottom = 427.0
+theme = ExtResource("12_rwetb")
+
+[node name="TextEdit" type="TextEdit" parent="PasswordPrompt"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -59.5
+offset_right = 165.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_rwetb")
+placeholder_text = "Type Password Here"
+wrap_mode = 1
+
+[node name="EnterPassword" type="Button" parent="PasswordPrompt"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -81.0
+offset_right = 125.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("12_rwetb")
+text = "Enter Password"
+
+[node name="BackButton" type="Button" parent="PasswordPrompt"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -53.0
+offset_right = 100.0
+grow_vertical = 0
+scale = Vector2(0.671215, 0.671215)
+theme = ExtResource("12_rwetb")
+text = "Back"
+
+[connection signal="text_changed" from="PasswordPrompt/TextEdit" to="." method="_on_text_edit_text_changed"]

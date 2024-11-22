@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bg0lga23joqw1"]
+
+[ext_resource type="StyleBox" uid="uid://ctab15gkcxmfs" path="res://UI/Assets/TextStyleBox.tres" id="1_wrgo3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2luf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 6
+Button/font_sizes/font_size = 32
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 16
+Label/font_sizes/font_size = 64
+Panel/styles/panel = SubResource("StyleBoxFlat_a2luf")
+TextEdit/colors/background_color = Color(1, 1, 1, 0)
+TextEdit/colors/font_color = Color(1, 1, 1, 1)
+TextEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(1, 1, 1, 1)
+TextEdit/constants/outline_size = 8
+TextEdit/font_sizes/font_size = 26
+TextEdit/styles/focus = ExtResource("1_wrgo3")
+TextEdit/styles/normal = ExtResource("1_wrgo3")
+TextEdit/styles/read_only = ExtResource("1_wrgo3")
