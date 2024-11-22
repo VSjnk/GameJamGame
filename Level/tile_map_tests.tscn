@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://52wvfu685fd8"]
+[gd_scene load_steps=12 format=3 uid="uid://52wvfu685fd8"]
 
 [ext_resource type="Script" path="res://Assets/scripts/LevelLogic.gd" id="1_dtafq"]
 [ext_resource type="Texture2D" uid="uid://bnvp08pfdirmn" path="res://Assets/TileMap/TileMapV1.png" id="1_saxgg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://buaodywkspfng" path="res://Assets/Door/door.tscn" id="3_57vm8"]
 [ext_resource type="PackedScene" uid="uid://dah31kvtdsa5l" path="res://Scenes/Parasite/parasite.tscn" id="3_yfflc"]
 [ext_resource type="PackedScene" uid="uid://bxpa3h1amfouj" path="res://Scenes/Medicine/medicine.tscn" id="4_s60vu"]
+[ext_resource type="PackedScene" uid="uid://crc54bq7jyees" path="res://Assets/DialougTrigger/dialouge_trigger.tscn" id="7_gc7mc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h2p21"]
 vertices = PackedVector2Array(6336, -512, 6336, 2176, 4800, 2176, 4800, 1152, 3712, 1728, 3968, 1728, 3968, 2176, 3328, 2176, 3328, 1728, 3584, 1728, 3712, 1152, 3584, 1152, 1600, 2176, 1920, 2176, 1920, 2688, 896, 2688, 896, 2176, 1472, 2176, 1600, 1152, 1472, 1728, 256, 512, 64, 512, 64, 64, 576, 64, 576, 512, 384, 512, 256, 1728, 384, 1600, 1472, 1600, 1472, 0, 1600, 1024, 2112, 0, 2112, -256, 3072, -256, 3072, 576, 2112, 576, 2112, 128, 1600, 128, 4800, 1024, 4800, -512)
@@ -67,6 +68,12 @@ position = Vector2(1234, 1788)
 rotation = -1.57079
 scale = Vector2(1.93632, 1.93632)
 
+[node name="Door3" parent="NavigationRegion2D/Doors" instance=ExtResource("3_57vm8")]
+position = Vector2(1408, 2037)
+rotation = 0.00223462
+scale = Vector2(1.93632, 1.93632)
+password = "Password"
+
 [node name="Player" parent="." instance=ExtResource("2_tq4gn")]
 position = Vector2(167, 139)
 
@@ -103,3 +110,15 @@ position = Vector2(1539, 558)
 
 [node name="parasite6" parent="parasites" instance=ExtResource("3_yfflc")]
 position = Vector2(2219, 1144)
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="DialougeTrigger" parent="Triggers" instance=ExtResource("7_gc7mc")]
+position = Vector2(320, 548)
+
+[node name="CollisionShape2D" parent="Triggers/DialougeTrigger" index="0"]
+position = Vector2(-0.5, 0)
+
+[editable path="Triggers/DialougeTrigger"]
