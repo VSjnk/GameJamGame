@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dah31kvtdsa5l"]
+[gd_scene load_steps=6 format=3 uid="uid://dah31kvtdsa5l"]
 
 [ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_cowcl"]
 [ext_resource type="Script" path="res://Scenes/Parasite/parasite.gd" id="2_ovidr"]
@@ -8,6 +8,9 @@ radius = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knrvq"]
 size = Vector2(66, 108)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ji1rt"]
+polygon = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
 
 [node name="parasite" type="CharacterBody2D" groups=["parasite"]]
 script = ExtResource("2_ovidr")
@@ -40,6 +43,9 @@ position = Vector2(33, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Radius" groups=["parasite"]]
 position = Vector2(19, 0)
 shape = SubResource("RectangleShape2D_knrvq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ji1rt")
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
