@@ -18,7 +18,6 @@ extends Control
 var maxPlayerHealth = 100.0
 var hudIncrement = 25.0
 
-var textTween : Tween
 const CHAR_READ_RATE = 0.05
 
 #because I'm stupid, I don't know how to make delta time global so this will have to do.
@@ -26,8 +25,10 @@ var flashTime = 0
 var _delta = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	showDialoug("This is a test")
-	#text_box.hide()
+	queue_text("1: Starting Text script queue")
+	queue_text("2: Starting Text script queue")
+	queue_text("3: Starting Text script queue")
+	queue_text("4: Starting Text script queue")
 	while player.find_child("Player") == null:
 		player = player.get_parent()
 		if player.find_child("Player"):
@@ -43,6 +44,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	check_state()
 	_delta = delta
 	parasite_time.visible = Input.is_action_pressed("CheckParasite")
 	parasite_time.value = player.parasiteLeft / 10
@@ -84,17 +86,61 @@ func hurtUI():
 				await get_tree().process_frame
 	injured.modulate = Color(1,1,1,0)
 
-#This function handels the dialoug text
+#This all handels the dialoug text
 
-func showDialoug(TextBox):
+enum State {
+	READY,
+	READING,
+	FINISHED
+}
+
+var textTween : Tween
+
+var current_state = State.READY
+
+var text_queue = []
+
+func queue_text(next_text):
+	text_queue.push_back(next_text)
+
+func showDialoug():
+	var TextBox = text_queue.pop_front()
+	text_box.show()
 	dialoug.text = TextBox
+	change_state(State.READING)
 	if textTween:
 		textTween.kill()
 	textTween = get_tree().create_tween()
-	textTween.finished.connect(textTween_Finished)
+	textTween.finished.connect(self.textTween_Finished)
 	textTween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 	textTween.tween_property(dialoug, "visible_ratio", 1.0, len(TextBox) * CHAR_READ_RATE)
 
 func textTween_Finished():
 	print("Got function!")
-	$TextBox/V.show()
+	change_state(State.FINISHED)
+
+func change_state(state):
+	current_state = state
+
+func check_state():
+	match current_state:
+		State.READY:
+			print("Ready State!")
+			dialoug.text = ""
+			dialoug.visible_ratio = 0
+			text_box.hide()
+			if !text_queue.is_empty():
+				showDialoug()
+		State.READING:
+			print("Reading State!")
+			if Input.is_action_just_pressed("ui_accept"):
+				if textTween:
+					textTween.stop()
+				dialoug.visible_ratio = 1
+				change_state(State.FINISHED)
+		State.FINISHED:
+			print("Finished State!")
+			$TextBox/V.show()
+			if Input.is_action_just_pressed("ui_accept"):
+				$TextBox/V.hide()
+				change_state(State.READY)
