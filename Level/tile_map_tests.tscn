@@ -61,7 +61,6 @@ layer_0/tile_data = PackedInt32Array(589833, 65536, 0, 589824, 65536, 0, 589825,
 [node name="Door" parent="NavigationRegion2D/Doors" instance=ExtResource("3_57vm8")]
 position = Vector2(195, 619)
 scale = Vector2(1.93632, 1.93632)
-password = "123"
 
 [node name="Door2" parent="NavigationRegion2D/Doors" instance=ExtResource("3_57vm8")]
 position = Vector2(1234, 1788)
