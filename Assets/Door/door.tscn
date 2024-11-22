@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://buaodywkspfng"]
+[gd_scene load_steps=5 format=3 uid="uid://buaodywkspfng"]
 
 [ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_bv1jk"]
 [ext_resource type="Script" path="res://Assets/Door/door.gd" id="1_it4st"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvgk4"]
 size = Vector2(128, 28)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_idg78"]
+polygon = PackedVector2Array(0, 29, 128, 29, 128, -3, 0, -3)
 
 [node name="Door" type="CharacterBody2D" groups=["Door"]]
 process_mode = 3
@@ -24,3 +27,6 @@ texture = ExtResource("1_bv1jk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Door"]]
 position = Vector2(64, 14)
 shape = SubResource("RectangleShape2D_qvgk4")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_idg78")
