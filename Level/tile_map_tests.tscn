@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://52wvfu685fd8"]
+[gd_scene load_steps=13 format=3 uid="uid://52wvfu685fd8"]
 
 [ext_resource type="Script" path="res://Assets/scripts/LevelLogic.gd" id="1_dtafq"]
 [ext_resource type="Texture2D" uid="uid://bnvp08pfdirmn" path="res://Assets/TileMap/TileMapV1.png" id="1_saxgg"]
+[ext_resource type="Texture2D" uid="uid://byshq0bk8ltkc" path="res://black  texture.jpg" id="2_gg7vu"]
 [ext_resource type="PackedScene" uid="uid://bvicp538oa5eg" path="res://Scenes/Player/player.tscn" id="2_tq4gn"]
 [ext_resource type="PackedScene" uid="uid://buaodywkspfng" path="res://Assets/Door/door.tscn" id="3_57vm8"]
 [ext_resource type="PackedScene" uid="uid://dah31kvtdsa5l" path="res://Scenes/Parasite/parasite.tscn" id="3_yfflc"]
@@ -49,6 +50,11 @@ sources/0 = SubResource("TileSetAtlasSource_8apwq")
 
 [node name="TileMapTests" type="Node2D"]
 script = ExtResource("1_dtafq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3395, 1107.5)
+scale = Vector2(15.3856, 10.3456)
+texture = ExtResource("2_gg7vu")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_h2p21")
