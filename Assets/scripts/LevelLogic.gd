@@ -9,9 +9,6 @@ func _ready():
 		dialouge = find_child("Player").find_child("Camera2D").find_child("CanvasLayer").find_child("BasicHud")
 	else:
 		return
-	print(dialouge)
-	dialouge.queue_text("Test from outside!")
-	dialouge.queue_text("Ha Ha Ha It works!")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

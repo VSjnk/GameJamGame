@@ -6,6 +6,7 @@
 size = Vector2(459, 20)
 
 [node name="DialougeTrigger" type="Area2D"]
+process_mode = 3
 script = ExtResource("1_gjudm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

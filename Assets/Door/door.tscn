@@ -7,6 +7,7 @@
 size = Vector2(128, 28)
 
 [node name="Door" type="CharacterBody2D" groups=["Door"]]
+process_mode = 3
 position = Vector2(0, -13)
 script = ExtResource("1_it4st")
 

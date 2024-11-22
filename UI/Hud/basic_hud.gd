@@ -109,13 +109,14 @@ func queue_text(next_text):
 	text_queue.push_back(next_text)
 
 func showDialogue():
+	get_tree().paused = true
 	var TextBox = text_queue.pop_front()
 	text_box.show()
 	Dialogue .text = TextBox
 	change_state(State.READING)
 	if textTween:
 		textTween.kill()
-	textTween = get_tree().create_tween()
+	textTween = get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	textTween.finished.connect(self.textTween_Finished)
 	textTween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 	textTween.tween_property(Dialogue , "visible_ratio", 1.0, len(TextBox) * CHAR_READ_RATE)
@@ -133,7 +134,7 @@ func check_state(delta):
 			Dialogue.visible_ratio = 0
 			text_box.hide()
 			if !text_queue.is_empty():
-				showDialogue ()
+				showDialogue()
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("Attack"):
 				if textTween:
@@ -146,6 +147,7 @@ func check_state(delta):
 			if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("Attack") or dialougeTime >= 30.0:
 				$TextBox/V.hide()
 				change_state(State.READY)
+				get_tree().paused = false
 				dialougeTime = 0
 
 

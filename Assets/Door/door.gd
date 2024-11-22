@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var tween : Tween
 @export var password = ""
+var unlocked = false
 
 @onready var player = get_parent()
 var errorOverride = 0
@@ -43,13 +44,16 @@ func _ready():
 func interact():
 	if OS.is_debug_build():
 		print(current_Door_State)
-	if password != "":
+	if password != "" and !unlocked:
+		get_tree().paused = true
 		player.hud.password_prompt.show()
 		while player.hud.password_prompt.visible:
 			print("asking player for password...")
 			await get_tree().process_frame
 			if player.hud.enter_password.button_pressed:
 				if player.hud.password == password:
+					get_tree().paused = false
+					unlocked = true
 					match current_Door_State:
 						doorState.OPEN:
 							closed()
@@ -59,6 +63,7 @@ func interact():
 					player.hud.password_prompt.hide()
 			if player.hud.back_button.button_pressed:
 				print("Closed via back")
+				get_tree().paused = false
 				player.hud.password_prompt.hide()
 	else:
 		match current_Door_State:
@@ -71,12 +76,12 @@ func open():
 	current_Door_State = doorState.OPEN
 	if tween:
 		tween.kill()
-	tween = get_tree().create_tween().set_ease(ease).set_trans(trans)
+	tween = get_tree().create_tween().set_ease(ease).set_trans(trans).set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(self, "rotation", deg_to_rad(90) + SetRot, time)
 
 func closed():
 	current_Door_State = doorState.CLOSED
 	if tween:
 		tween.kill()
-	tween = get_tree().create_tween().set_ease(ease).set_trans(trans)
+	tween = get_tree().create_tween().set_ease(ease).set_trans(trans).set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(self, "rotation", deg_to_rad(0) + SetRot, time)

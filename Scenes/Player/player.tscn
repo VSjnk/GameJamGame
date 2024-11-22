@@ -14,9 +14,11 @@ radius = 64.0703
 script = ExtResource("1_afowi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
 zoom = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+process_mode = 3
 
 [node name="BasicHud" parent="Camera2D/CanvasLayer" instance=ExtResource("2_nprje")]
 visible = false
