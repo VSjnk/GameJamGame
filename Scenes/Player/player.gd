@@ -68,6 +68,8 @@ func _input(event):
 				if obj.is_in_group("Door"):
 					obj.interact()
 					print("Found Door!")
+				if obj.is_in_group("EndTrigger"):
+					obj.interact()
 					#else:
 						#print("Door has no password")
 						#hud.password_prompt.hide()
