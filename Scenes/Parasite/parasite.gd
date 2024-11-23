@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var random_recalculate_path = $RandomRecalculatePath
 @onready var constant_attack_time = $ConstantAttackTime
 @onready var meds = preload("res://Scenes/Medicine/medicine.tscn")
-@onready var medrand = randi_range(1,4)
+@onready var medrand = randi_range(1,3)
 var errorOverride = 0
 
 var direction : Vector2
