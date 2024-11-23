@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://52wvfu685fd8"]
+[gd_scene load_steps=16 format=3 uid="uid://52wvfu685fd8"]
 
 [ext_resource type="Script" path="res://Assets/scripts/LevelLogic.gd" id="1_dtafq"]
 [ext_resource type="Texture2D" uid="uid://bnvp08pfdirmn" path="res://Assets/TileMap/TileMapV1.png" id="1_saxgg"]
@@ -115,7 +115,7 @@ position = Vector2(4537, 71)
 rotation = 0.00388065
 scale = Vector2(-1.936, 1.936)
 
-[node name="Door6" parent="NavigationRegion2D/Doors" instance=ExtResource("3_57vm8")]
+[node name="Door9" parent="NavigationRegion2D/Doors" instance=ExtResource("3_57vm8")]
 position = Vector2(1412, 1991)
 scale = Vector2(1.93632, 1.93632)
 password = "38509North"
