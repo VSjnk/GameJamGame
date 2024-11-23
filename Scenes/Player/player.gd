@@ -46,8 +46,10 @@ func _physics_process(delta):
 		if stamina < 100:
 			stamina += stamina_recharge
 			
-	
-
+	if Input.is_action_pressed("Right") or Input.is_action_pressed("Left") or Input.is_action_pressed("Down") or Input.is_action_pressed("Up"):
+		$AnimatedSprites/AnimatedSprite2D.play("default")
+	else:
+		$AnimatedSprites/AnimatedSprite2D.stop()
 func _input(event):
 	
 	if Input.is_action_just_pressed("ui_page_down"):
