@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c2v51eiwxx4pp"]
+
+[node name="BadEnding" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "You escaped through the escape pod and ran away. little did you know the parasite inside of you was already reproducing and using you as sustanance and eggs
+would come out of you through your sweat
+
+You got picked up by a nearby ship that got the escape pods distress signal and you were taken back to earth. on earth the eggs hatched and quickly spread over 
+the earth in little under a year.
+
+by being selfish and choosing yourself over everybody else you killed off every human left and the ones that survived turned into mindless zombies controlled by
+said parisites.
+
+Game over - Bad ending"
