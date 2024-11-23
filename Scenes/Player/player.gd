@@ -53,9 +53,11 @@ func _physics_process(delta):
 func _input(event):
 	
 	if Input.is_action_just_pressed("ui_page_down"):
-		hurt(25)
+		pass
+		#hurt(25)
 	if Input.is_action_just_pressed("ui_page_up"):
-		heal(25)
+		pass
+		#heal(25)
 	if event is InputEventMouseMotion:
 		animated_sprites.look_at(get_global_mouse_position())
 	if event is InputEventMouseButton:
