@@ -52,7 +52,6 @@ sources/0 = SubResource("TileSetAtlasSource_8apwq")
 script = ExtResource("1_dtafq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(3395, 1107.5)
 scale = Vector2(15.3856, 10.3456)
 texture = ExtResource("2_gg7vu")
