@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://52wvfu685fd8"]
+[gd_scene load_steps=21 format=3 uid="uid://52wvfu685fd8"]
 
 [ext_resource type="Script" path="res://Assets/scripts/LevelLogic.gd" id="1_dtafq"]
 [ext_resource type="Texture2D" uid="uid://bnvp08pfdirmn" path="res://Assets/TileMap/TileMapV1.png" id="1_saxgg"]
@@ -57,6 +57,12 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_8apwq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8knl8"]
+size = Vector2(195, 80.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_betnq"]
+size = Vector2(105.998, 227)
 
 [node name="TileMapTests" type="Node2D"]
 script = ExtResource("1_dtafq")
@@ -238,3 +244,31 @@ text = "235***"
 position = Vector2(1398, 2583)
 scale = Vector2(3.52, 3.52)
 texture = ExtResource("11_043i8")
+
+[node name="TopDownLabbbbb3" type="Sprite2D" parent="."]
+position = Vector2(1597, 2686)
+rotation = 3.14159
+texture = ExtResource("10_1e0hc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1597, 2686)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.49988, -32.5)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_8knl8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(201.5, -27.374)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_8knl8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1440.51, 2952.74)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_8knl8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-6028.01, 2337.97)
+shape = SubResource("RectangleShape2D_betnq")
