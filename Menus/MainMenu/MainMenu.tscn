@@ -22,7 +22,7 @@ offset_right = 156.0
 offset_bottom = 156.0
 grow_horizontal = 2
 theme = ExtResource("1_cjxfo")
-text = "onsite parasite"
+text = "Onsite Parasite"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="."]
