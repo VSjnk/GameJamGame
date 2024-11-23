@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://52wvfu685fd8"]
+[gd_scene load_steps=18 format=3 uid="uid://52wvfu685fd8"]
 
 [ext_resource type="Script" path="res://Assets/scripts/LevelLogic.gd" id="1_dtafq"]
 [ext_resource type="Texture2D" uid="uid://bnvp08pfdirmn" path="res://Assets/TileMap/TileMapV1.png" id="1_saxgg"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dah31kvtdsa5l" path="res://Scenes/Parasite/parasite.tscn" id="3_yfflc"]
 [ext_resource type="PackedScene" uid="uid://bxpa3h1amfouj" path="res://Scenes/Medicine/medicine.tscn" id="4_s60vu"]
 [ext_resource type="PackedScene" uid="uid://crc54bq7jyees" path="res://Assets/DialougTrigger/dialouge_trigger.tscn" id="8_rc6u2"]
+[ext_resource type="Texture2D" uid="uid://bnqrogwjveyrb" path="res://Top_down_Bathroom.webp" id="9_11utv"]
+[ext_resource type="Texture2D" uid="uid://3egyfj23wisu" path="res://TOP_down_LABBBBB.png" id="10_1e0hc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h2p21"]
 vertices = PackedVector2Array(7616, -512, 7616, 384, 7104, 384, 7104, -384, 4800, -512, 6336, -384, 4800, 192, 6336, 2048, 6528, 2048, 6528, 1472, 7552, 1472, 7552, 2176, 4800, 2176, 4800, 1152, 3712, 1728, 3968, 1728, 3968, 2176, 3328, 2176, 3328, 1728, 3584, 1728, 3712, 1152, 3584, 1152, 1600, 2176, 1920, 2176, 1920, 2688, 896, 2688, 896, 2176, 1472, 2176, 1600, 1152, 1472, 1728, 256, 512, 64, 512, 64, 64, 576, 64, 576, 512, 384, 512, 256, 1728, 384, 1600, 1472, 1600, 1472, 0, 1600, 1024, 2112, 0, 2112, -256, 3072, -256, 3072, 576, 2112, 576, 2112, 128, 1600, 128, 4480, 640, 4160, 640, 4160, 512, 4352, 512, 4480, 320, 4352, 0, 4160, 0, 4160, -128, 4480, -128, 4480, 192, 4800, 320, 4800, 1024)
@@ -194,3 +196,39 @@ DialougeText = ["AAGH! ", "Damn, one of them got me...", "Hold \"F\" To check on
 position = Vector2(949, 1661)
 rotation = -1.57079
 DialougeText = ["Thank god! Medicine", "Hopefully it can help with this infection.", "Medicine will give you more time before the parasite bar hurts you."]
+
+[node name="TopDownBathroom" type="Sprite2D" parent="."]
+position = Vector2(4234, -67.5)
+scale = Vector2(1.38542, 1.35938)
+texture = ExtResource("9_11utv")
+
+[node name="TopDownBathroom2" type="Sprite2D" parent="."]
+position = Vector2(4212.4, 575.051)
+rotation = -6.28318
+scale = Vector2(1.18123, 1.34492)
+texture = ExtResource("9_11utv")
+
+[node name="TopDownLabbbbb" type="Sprite2D" parent="."]
+position = Vector2(7574, 349.5)
+rotation = 1.57079
+scale = Vector2(1.75, 1.65104)
+texture = ExtResource("10_1e0hc")
+
+[node name="Label" type="Label" parent="TopDownLabbbbb"]
+offset_left = -12.0
+offset_top = -55.0
+offset_right = 47.0
+offset_bottom = -29.0
+text = "***385"
+
+[node name="TopDownLabbbbb2" type="Sprite2D" parent="."]
+position = Vector2(3037, -224)
+scale = Vector2(1.58854, 1.47917)
+texture = ExtResource("10_1e0hc")
+
+[node name="Label" type="Label" parent="TopDownLabbbbb2"]
+offset_left = -8.18361
+offset_top = -52.0563
+offset_right = 45.8164
+offset_bottom = -29.0563
+text = "235***"
