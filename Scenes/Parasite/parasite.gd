@@ -4,7 +4,6 @@ extends CharacterBody2D
 
 @onready var nav = $NavigationAgent2D
 @onready var random_recalculate_path = $RandomRecalculatePath
-@onready var bodies = $Radius.get_overlapping_bodies()
 @onready var constant_attack_time = $ConstantAttackTime
 
 var errorOverride = 0
@@ -41,6 +40,9 @@ func _ready():
 func _physics_process(delta):
 	_delta = delta
 	if active:
+		$Radius.look_at(player.global_position)
+		if constant_attack_time.is_stopped():
+			constant_attack_time.start()
 		if random_recalculate_path.is_stopped():
 			random_recalculate_path.start(randf_range(0.05, 0.1))
 		if direction and speed and accel:
@@ -52,6 +54,7 @@ func _physics_process(delta):
 
 #Decides if the parasite should attack.
 func _on_visible_on_screen_notifier_2d_screen_entered():
+	print("On screen!")
 	active = true
 	constant_attack_time.start()
 
@@ -64,7 +67,10 @@ func _on_random_recalculate_path_timeout():
 	direction = direction.normalized()
 
 func _on_constant_attack_time_timeout():
+	print("Timer Done!")
+	var bodies = $Radius.get_overlapping_bodies()
 	for obj in bodies:
+		print(obj)
 		if obj.is_in_group("Player"):
 			obj.hurt(damage)
 			

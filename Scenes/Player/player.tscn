@@ -30,10 +30,10 @@ visible = false
 rotation = 1.57079
 texture = ExtResource("1_a10tn")
 
-[node name="Range" type="Area2D" parent="AnimatedSprites"]
+[node name="Range" type="Area2D" parent="AnimatedSprites" groups=["Player"]]
 position = Vector2(35, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprites/Range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprites/Range" groups=["Player"]]
 position = Vector2(88, 0)
 shape = SubResource("RectangleShape2D_22ms6")
 
