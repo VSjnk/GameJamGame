@@ -67,6 +67,7 @@ size = Vector2(105.998, 227)
 
 [node name="TileMapTests" type="Node2D"]
 script = ExtResource("1_dtafq")
+metadata/_edit_horizontal_guides_ = [304.0]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(3395, 1107.5)
@@ -131,7 +132,7 @@ scale = Vector2(1.93632, 1.93632)
 password = "235385"
 
 [node name="Player" parent="." instance=ExtResource("2_tq4gn")]
-position = Vector2(167, 139)
+position = Vector2(1346, 2296)
 
 [node name="Medicine" type="Node2D" parent="."]
 
@@ -277,10 +278,10 @@ shape = SubResource("RectangleShape2D_betnq")
 [node name="Triggers" type="Node2D" parent="."]
 
 [node name="EndTriggerGood" parent="Triggers" instance=ExtResource("12_pr6qe")]
-position = Vector2(1600, 2647)
+position = Vector2(1597, 2715)
 
 [node name="EndTriggerBad" parent="Triggers" instance=ExtResource("12_pr6qe")]
-position = Vector2(1378, 2651)
+position = Vector2(1398, 2706)
 triggerID = 1
 
 [editable path="Triggers/EndTriggerGood"]
