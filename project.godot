@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Game Jam Game"
+config/version="1.0"
 run/main_scene="res://Menus/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://start_screen.png"
 
 [autoload]
 
