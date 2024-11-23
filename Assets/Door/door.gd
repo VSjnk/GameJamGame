@@ -5,15 +5,18 @@ var tween : Tween
 var unlocked = false
 
 @onready var player = get_parent()
+@onready var audio_stream_player = $AudioStreamPlayer
+
 var errorOverride = 0
 
 
 @onready var SetRot = rotation
+const moveBy = 300
 var ease = Tween.EASE_OUT
 var trans = Tween.TRANS_ELASTIC
 
 
-const time = 2.5
+const time = 1.3
 
 
 enum doorState {
@@ -73,15 +76,20 @@ func interact():
 				open()
 
 func open():
+	audio_stream_player.play()
+	var forward = Vector2(cos(SetRot), sin(SetRot)) * moveBy + global_position
+	print(forward)
 	current_Door_State = doorState.OPEN
 	if tween:
 		tween.kill()
 	tween = get_tree().create_tween().set_ease(ease).set_trans(trans).set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(self, "rotation", deg_to_rad(90) + SetRot, time)
+	tween.tween_property(self, "position", forward, time)
 
 func closed():
+	audio_stream_player.play()
+	var forward = Vector2(cos(SetRot), sin(SetRot)) * moveBy * -1 + global_position
 	current_Door_State = doorState.CLOSED
 	if tween:
 		tween.kill()
 	tween = get_tree().create_tween().set_ease(ease).set_trans(trans).set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(self, "rotation", deg_to_rad(0) + SetRot, time)
+	tween.tween_property(self, "position", forward, time)

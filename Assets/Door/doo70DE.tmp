@@ -1,14 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://buaodywkspfng"]
+[gd_scene load_steps=5 format=3 uid="uid://buaodywkspfng"]
 
 [ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_bv1jk"]
 [ext_resource type="Script" path="res://Assets/Door/door.gd" id="1_it4st"]
-[ext_resource type="AudioStream" uid="uid://bi78r0pc8m0ro" path="res://SFX/Door.mp3" id="3_ip24m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvgk4"]
-size = Vector2(117, 28)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_t6jsv"]
-radius = 14.0357
+size = Vector2(128, 28)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_idg78"]
 polygon = PackedVector2Array(0, 29, 128, 29, 128, -3, 0, -3)
@@ -29,15 +25,8 @@ scale = Vector2(1, 0.21875)
 texture = ExtResource("1_bv1jk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Door"]]
-position = Vector2(69.5, 14)
+position = Vector2(64, 14)
 shape = SubResource("RectangleShape2D_qvgk4")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Door"]]
-position = Vector2(11, 14)
-shape = SubResource("CircleShape2D_t6jsv")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_idg78")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ip24m")
