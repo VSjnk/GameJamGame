@@ -5,6 +5,8 @@ var tween : Tween
 var unlocked = false
 
 @onready var player = get_parent()
+@onready var audio_stream_player = $AudioStreamPlayer
+
 var errorOverride = 0
 
 
@@ -74,6 +76,7 @@ func interact():
 				open()
 
 func open():
+	audio_stream_player.play()
 	var forward = Vector2(cos(SetRot), sin(SetRot)) * moveBy + global_position
 	print(forward)
 	current_Door_State = doorState.OPEN
@@ -83,6 +86,7 @@ func open():
 	tween.tween_property(self, "position", forward, time)
 
 func closed():
+	audio_stream_player.play()
 	var forward = Vector2(cos(SetRot), sin(SetRot)) * moveBy * -1 + global_position
 	current_Door_State = doorState.CLOSED
 	if tween:
