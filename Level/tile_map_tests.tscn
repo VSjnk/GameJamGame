@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://52wvfu685fd8"]
+[gd_scene load_steps=19 format=3 uid="uid://52wvfu685fd8"]
 
 [ext_resource type="Script" path="res://Assets/scripts/LevelLogic.gd" id="1_dtafq"]
 [ext_resource type="Texture2D" uid="uid://bnvp08pfdirmn" path="res://Assets/TileMap/TileMapV1.png" id="1_saxgg"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://crc54bq7jyees" path="res://Assets/DialougTrigger/dialouge_trigger.tscn" id="8_rc6u2"]
 [ext_resource type="Texture2D" uid="uid://bnqrogwjveyrb" path="res://Top_down_Bathroom.webp" id="9_11utv"]
 [ext_resource type="Texture2D" uid="uid://3egyfj23wisu" path="res://TOP_down_LABBBBB.png" id="10_1e0hc"]
+[ext_resource type="Texture2D" uid="uid://d0alpe8l84wjg" path="res://excape pod.png" id="11_043i8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h2p21"]
 vertices = PackedVector2Array(7616, -512, 7616, 384, 7104, 384, 7104, -384, 4800, -512, 6336, -384, 4800, 192, 6336, 2048, 6528, 2048, 6528, 1472, 7552, 1472, 7552, 2176, 4800, 2176, 4800, 1152, 3712, 1728, 3968, 1728, 3968, 2176, 3328, 2176, 3328, 1728, 3584, 1728, 3712, 1152, 3584, 1152, 1600, 2176, 1920, 2176, 1920, 2688, 896, 2688, 896, 2176, 1472, 2176, 1600, 1152, 1472, 1728, 256, 512, 64, 512, 64, 64, 576, 64, 576, 512, 384, 512, 256, 1728, 384, 1600, 1472, 1600, 1472, 0, 1600, 1024, 2112, 0, 2112, -256, 3072, -256, 3072, 576, 2112, 576, 2112, 128, 1600, 128, 4480, 640, 4160, 640, 4160, 512, 4352, 512, 4480, 320, 4352, 0, 4160, 0, 4160, -128, 4480, -128, 4480, 192, 4800, 320, 4800, 1024)
@@ -232,3 +233,8 @@ offset_top = -52.0563
 offset_right = 45.8164
 offset_bottom = -29.0563
 text = "235***"
+
+[node name="ExcapePod" type="Sprite2D" parent="."]
+position = Vector2(1398, 2583)
+scale = Vector2(3.52, 3.52)
+texture = ExtResource("11_043i8")
