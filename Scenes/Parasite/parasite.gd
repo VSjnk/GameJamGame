@@ -49,7 +49,7 @@ func _physics_process(delta):
 			velocity = velocity.lerp(direction * speed, accel * delta)
 			var lookPos = direction
 			if not global_position.is_equal_approx(lookPos):
-				look_at(lookPos)
+				look_at($"../../Player".global_position)
 		move_and_slide()
 
 #Decides if the parasite should attack.
