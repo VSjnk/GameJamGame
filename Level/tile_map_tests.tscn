@@ -188,9 +188,9 @@ DialougeText = ["Use left click to open and close doors", "And to attack parasit
 
 [node name="DialougeTrigger2" parent="Dialouge" instance=ExtResource("8_rc6u2")]
 position = Vector2(306, 817)
-DialougeText = ["AAGH! ", "Damn, one of them got me...", "Press \"F\" To check on your parasitic infection."]
+DialougeText = ["AAGH! ", "Damn, one of them got me...", "Hold \"F\" To check on your parasitic infection."]
 
 [node name="DialougeTrigger4" parent="Dialouge" instance=ExtResource("8_rc6u2")]
 position = Vector2(949, 1661)
 rotation = -1.57079
-DialougeText = ["Thank god! Medicine", "Hopefully it can help with this infection."]
+DialougeText = ["Thank god! Medicine", "Hopefully it can help with this infection.", "Medicine will give you more time before the parasite bar hurts you."]
