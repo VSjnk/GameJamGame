@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dah31kvtdsa5l"]
 
-[ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_cowcl"]
+[ext_resource type="Texture2D" uid="uid://wd4d47jmt1qk" path="res://Parasite_1.png" id="2_lpkyk"]
 [ext_resource type="Script" path="res://Scenes/Parasite/parasite.gd" id="2_ovidr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbxjb"]
@@ -10,7 +10,7 @@ radius = 34.0
 size = Vector2(66, 108)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ji1rt"]
-polygon = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
+polygon = PackedVector2Array(39, 23, 45, 23, 48, 21, 46, 20, 42, 21, 39, 18, 41, 19, 45, 18, 44, 17, 40, 17, 41, 14, 46, 13, 45, 12, 40, 13, 40, 11, 46, 10, 47, 8, 42, 9, 40, 8, 46, 6, 44, 6, 40, 6, 40, 4, 47, 5, 49, 3, 49, 2, 41, 3, 41, 1, 46, 1, 49, 0, 48, -1, 41, -1, 42, -3, 48, -2, 50, -3, 48, -4, 41.7757, -3.83144, 42, -6, 46.4643, -4.99117, 47, -7, 41, -9, 43, -9, 46, -8, 49, -8, 47, -11, 41, -11, 42, -13, 45, -12, 47, -13, 42, -16, 46, -18, 42, -19, 47, -20, 47, -22, 43, -23, 38, -22, 32, -21, 28, -12, 7, -7, -15, -6, -39, -6, -48, -3, -49, 3, -41, 6, -2, 7, 28, 13, 31, 20)
 
 [node name="parasite" type="CharacterBody2D" groups=["parasite"]]
 script = ExtResource("2_ovidr")
@@ -18,7 +18,7 @@ script = ExtResource("2_ovidr")
 [node name="parasite" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.532, 0.532)
-texture = ExtResource("1_cowcl")
+texture = ExtResource("2_lpkyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["parasite"]]
 shape = SubResource("CircleShape2D_lbxjb")
@@ -45,6 +45,7 @@ position = Vector2(19, 0)
 shape = SubResource("RectangleShape2D_knrvq")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(1, 0)
 occluder = SubResource("OccluderPolygon2D_ji1rt")
 
 [node name="kill time" type="Timer" parent="."]

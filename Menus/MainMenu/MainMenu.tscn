@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2ydw5mf8yh3r"]
+[gd_scene load_steps=4 format=3 uid="uid://c2ydw5mf8yh3r"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/MainMenu.gd" id="1_8mwsx"]
 [ext_resource type="Theme" uid="uid://bg0lga23joqw1" path="res://UI/Assets/MainTheme.tres" id="1_cjxfo"]
+[ext_resource type="Texture2D" uid="uid://s8hmpq3i5ejc" path="res://start_screen.png" id="2_ajqa1"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_8mwsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(641, 361.5)
+scale = Vector2(6.69792, 3.80729)
+texture = ExtResource("2_ajqa1")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -16,7 +22,7 @@ offset_right = 156.0
 offset_bottom = 156.0
 grow_horizontal = 2
 theme = ExtResource("1_cjxfo")
-text = "The Game"
+text = "onsite parasite"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="."]
