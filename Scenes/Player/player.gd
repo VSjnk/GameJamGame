@@ -46,6 +46,7 @@ func _physics_process(delta):
 		if stamina < 100:
 			stamina += stamina_recharge
 			
+	
 
 func _input(event):
 	

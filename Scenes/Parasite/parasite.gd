@@ -5,17 +5,18 @@ extends CharacterBody2D
 @onready var nav = $NavigationAgent2D
 @onready var random_recalculate_path = $RandomRecalculatePath
 @onready var constant_attack_time = $ConstantAttackTime
-@onready var meds = preload("res://Scenes/Medicine/medicine.tscn")
-@onready var randommeds = randi_range(1,5)
+
 var errorOverride = 0
 
 var direction : Vector2
+
 var health = 50
 var speed = 150
 var _delta = 0
 const accel = 10
 const damage = 10
-var medint = 0
+
+
 
 var active = false
 #Finds the Player node as soon as it loads into the scene.
@@ -48,8 +49,9 @@ func _physics_process(delta):
 			velocity = velocity.lerp(direction * speed, accel * delta)
 			var lookPos = direction
 			if not global_position.is_equal_approx(lookPos):
-				look_at($"../../Player".global_position)
+				look_at(lookPos)
 		move_and_slide()
+
 #Decides if the parasite should attack.
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	print("On screen!")
@@ -76,9 +78,4 @@ func _on_constant_attack_time_timeout():
 func hurt(damage):
 	health -= damage
 	if health <= 0:
-		if randommeds == 2:
-			medint = meds.instantiate()
-			$"../../Medicine".add_child(medint)
-			medint.global_position = $".".global_position
 		queue_free()
-

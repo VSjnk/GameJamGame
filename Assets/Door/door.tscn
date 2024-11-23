@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://buaodywkspfng"]
+[gd_scene load_steps=6 format=3 uid="uid://buaodywkspfng"]
 
 [ext_resource type="Script" path="res://Assets/Door/door.gd" id="1_it4st"]
 [ext_resource type="Texture2D" uid="uid://di177emsrer0o" path="res://door.png" id="2_wef5m"]
+[ext_resource type="AudioStream" uid="uid://bi78r0pc8m0ro" path="res://SFX/Door.mp3" id="3_ip24m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvgk4"]
 size = Vector2(128, 28)
@@ -30,3 +31,6 @@ shape = SubResource("RectangleShape2D_qvgk4")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_idg78")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ip24m")
