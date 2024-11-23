@@ -47,6 +47,8 @@ shape = SubResource("RectangleShape2D_knrvq")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_ji1rt")
 
+[node name="kill time" type="Timer" parent="."]
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="RandomRecalculatePath" to="." method="_on_random_recalculate_path_timeout"]
