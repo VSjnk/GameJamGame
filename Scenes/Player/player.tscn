@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cl027h4j5xrj6" path="res://icon.svg" id="1_a10tn"]
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_afowi"]
 [ext_resource type="PackedScene" uid="uid://covas3f0i7xtb" path="res://UI/Hud/basic_hud.tscn" id="2_nprje"]
-[ext_resource type="Texture2D" uid="uid://cg5d6vo1l7w0l" path="res://Top_DOWN_PLAYER1.png" id="3_vyysc"]
+[ext_resource type="Texture2D" path="res://Top_DOWN_PLAYER1.png" id="3_vyysc"]
 [ext_resource type="Texture2D" uid="uid://md4vxt0vq63w" path="res://LIGHT2.png" id="4_demge"]
-[ext_resource type="Texture2D" uid="uid://cd3cpn2j2nl7" path="res://Top_DOWN_PLAYER3.png" id="4_vcp2n"]
-[ext_resource type="Texture2D" uid="uid://djyf18brdqx2t" path="res://Top_DOWN_PLAYER2.png" id="5_lp0fm"]
+[ext_resource type="Texture2D" path="res://Top_DOWN_PLAYER3.png" id="4_vcp2n"]
+[ext_resource type="Texture2D" path="res://Top_DOWN_PLAYER2.png" id="5_lp0fm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tykk"]
 animations = [{
