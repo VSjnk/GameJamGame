@@ -48,7 +48,6 @@ func _physics_process(delta):
 			if not global_position.is_equal_approx(lookPos):
 				look_at(lookPos)
 		move_and_slide()
-	print(constant_attack_time.time_left)
 #Decides if the parasite should attack.
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	active = true
