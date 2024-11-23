@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fht5l"]
 size = Vector2(182, 74)
 
-[node name="Trigger" type="Area2D" groups=["EndTrigger"]]
+[node name="Trigger" type="StaticBody2D" groups=["EndTrigger"]]
 script = ExtResource("1_xnln1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["EndTrigger"]]
