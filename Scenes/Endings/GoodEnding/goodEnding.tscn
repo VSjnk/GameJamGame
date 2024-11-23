@@ -1,6 +1,13 @@
-[gd_scene format=3 uid="uid://drm6i5ibcslbr"]
+[gd_scene load_steps=2 format=3 uid="uid://drm6i5ibcslbr"]
+
+[ext_resource type="Texture2D" uid="uid://s8hmpq3i5ejc" path="res://start_screen.png" id="1_n80vc"]
 
 [node name="GoodEnding" type="Node2D"]
+
+[node name="StartScreen" type="Sprite2D" parent="."]
+position = Vector2(640.5, 360)
+scale = Vector2(6.67188, 3.73958)
+texture = ExtResource("1_n80vc")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

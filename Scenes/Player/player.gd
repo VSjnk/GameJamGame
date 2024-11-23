@@ -25,7 +25,7 @@ func _physics_process(delta):
 	var direction = Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
 	if direction:
 		#Handels your sprinting
-		parasiteLeft -= randf_range(0.0,1.0)
+		parasiteLeft -= randf_range(0.0,3.0)
 		if parasiteLeft <= 0:
 			hurt(randi_range(1,25))
 			parasiteLeft = 1000
