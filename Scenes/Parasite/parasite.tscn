@@ -7,7 +7,7 @@
 radius = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knrvq"]
-size = Vector2(62, 108)
+size = Vector2(66, 108)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ji1rt"]
 polygon = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
@@ -36,12 +36,12 @@ autostart = true
 
 [node name="ConstantAttackTime" type="Timer" parent="."]
 wait_time = 0.75
-one_shot = true
 
 [node name="Radius" type="Area2D" parent="." groups=["parasite"]]
+position = Vector2(33, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Radius" groups=["parasite"]]
-position = Vector2(45, 0)
+position = Vector2(19, 0)
 shape = SubResource("RectangleShape2D_knrvq")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
