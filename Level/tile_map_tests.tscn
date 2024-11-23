@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://52wvfu685fd8"]
+[gd_scene load_steps=23 format=3 uid="uid://52wvfu685fd8"]
 
 [ext_resource type="Script" path="res://Assets/scripts/LevelLogic.gd" id="1_dtafq"]
 [ext_resource type="Texture2D" uid="uid://bnvp08pfdirmn" path="res://Assets/TileMap/TileMapV1.png" id="1_saxgg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bnqrogwjveyrb" path="res://Top_down_Bathroom.webp" id="9_11utv"]
 [ext_resource type="Texture2D" uid="uid://3egyfj23wisu" path="res://TOP_down_LABBBBB.png" id="10_1e0hc"]
 [ext_resource type="Texture2D" uid="uid://d0alpe8l84wjg" path="res://excape pod.png" id="11_043i8"]
+[ext_resource type="Texture2D" uid="uid://o1jd0b7us5pt" path="res://Top down Bed!.png" id="12_2p2k1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h2p21"]
 vertices = PackedVector2Array(7616, -512, 7616, 384, 7104, 384, 7104, -384, 4800, -512, 6336, -384, 4800, 192, 6336, 2048, 6528, 2048, 6528, 1472, 7552, 1472, 7552, 2176, 4800, 2176, 4800, 1152, 3712, 1728, 3968, 1728, 3968, 2176, 3328, 2176, 3328, 1728, 3584, 1728, 3712, 1152, 3584, 1152, 1600, 2176, 1920, 2176, 1920, 2688, 896, 2688, 896, 2176, 1472, 2176, 1600, 1152, 1472, 1728, 256, 512, 64, 512, 64, 64, 576, 64, 576, 512, 384, 512, 256, 1728, 384, 1600, 1472, 1600, 1472, 0, 1600, 1024, 2112, 0, 2112, -256, 3072, -256, 3072, 576, 2112, 576, 2112, 128, 1600, 128, 4480, 640, 4160, 640, 4160, 512, 4352, 512, 4480, 320, 4352, 0, 4160, 0, 4160, -128, 4480, -128, 4480, 192, 4800, 320, 4800, 1024)
@@ -63,6 +64,9 @@ size = Vector2(195, 80.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betnq"]
 size = Vector2(105.998, 227)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc2tx"]
+size = Vector2(61.8872, 125.988)
 
 [node name="TileMapTests" type="Node2D"]
 script = ExtResource("1_dtafq")
@@ -272,3 +276,14 @@ shape = SubResource("RectangleShape2D_8knl8")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-6028.01, 2337.97)
 shape = SubResource("RectangleShape2D_betnq")
+
+[node name="TopDownBed!" type="Sprite2D" parent="."]
+position = Vector2(3307, 1790)
+scale = Vector2(1.34115, 1.32552)
+texture = ExtResource("12_2p2k1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TopDownBed!"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopDownBed!/StaticBody2D"]
+position = Vector2(-0.372803, -31.3085)
+shape = SubResource("RectangleShape2D_yc2tx")
