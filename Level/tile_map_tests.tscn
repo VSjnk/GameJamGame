@@ -152,9 +152,6 @@ position = Vector2(167, 139)
 [node name="Medicine" parent="Medicine" instance=ExtResource("4_s60vu")]
 position = Vector2(2436, 152)
 
-[node name="Medicine2" parent="Medicine" instance=ExtResource("4_s60vu")]
-position = Vector2(2753, 81)
-
 [node name="Medicine3" parent="Medicine" instance=ExtResource("4_s60vu")]
 position = Vector2(1606, 2466)
 
@@ -249,10 +246,26 @@ position = Vector2(1398, 2583)
 scale = Vector2(3.52, 3.52)
 texture = ExtResource("11_043i8")
 
+[node name="Label" type="Label" parent="ExcapePod"]
+offset_left = -22.7273
+offset_top = 37.2159
+offset_right = 113.273
+offset_bottom = 60.2159
+scale = Vector2(0.338058, 0.338058)
+text = "excape spaceship"
+
 [node name="TopDownLabbbbb3" type="Sprite2D" parent="."]
 position = Vector2(1597, 2686)
 rotation = 3.14159
 texture = ExtResource("10_1e0hc")
+
+[node name="Label" type="Label" parent="TopDownLabbbbb3"]
+offset_left = 52.0
+offset_top = -18.9999
+offset_right = 160.0
+offset_bottom = 4.00013
+rotation = -3.14159
+text = "call off rescue"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1597, 2686)
